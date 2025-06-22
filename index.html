@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeeks - AI-Powered Compliance Solutions</title>
+    <style>
+        /* Montserrat Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fd4e00 0%, #ff6b35 100%);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 78, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        .hero-section {
+            padding: 120px 40px 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            font-size: 24px;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #fd4e00;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            padding: 80px 40px;
+        }
+
+        .section-white {
+            background: white;
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 60px;
+            opacity: 0.8;
+        }
+
+        .benefits-grid-new {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px 40px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .benefit-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .benefit-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .benefit-item p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fd4e00;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+
+        .user-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .user-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .user-card p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-number {
+            background: #fd4e00;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .about-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #fd4e00;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .final-cta h2 {
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #333;
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .decorative-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .shape.diamond {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg);
+        }
+
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .shape.circle {
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .hero-section {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .benefits-grid,
+            .benefits-grid-new,
+            .features-grid,
+            .users-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefits-grid-new {
+                gap: 40px 20px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(2) { animation-delay: -2s; }
+        .floating:nth-child(3) { animation-delay: -4s; }
+    </style>
+</head>
+<body>
+    <div class="decorative-shapes">
+        <div class="shape diamond floating" style="top: 10%; left: 10%;"></div>
+        <div class="shape triangle floating" style="top: 20%; right: 15%;"></div>
+        <div class="shape circle floating" style="top: 60%; left: 5%;"></div>
+        <div class="shape diamond floating" style="top: 70%; right: 10%;"></div>
+        <div class="shape triangle floating" style="top: 30%; left: 80%;"></div>
+        <div class="shape circle floating" style="top: 80%; right: 20%;"></div>
+    </div>
+
+    <header class="header">
+        <div class="logo">Zeeks</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#users">Who We Serve</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-badge">Built by compliance experts with 22+ years of experience</div>
+        <h1 class="hero-title">We make Compliance Easy</h1>
+        <p class="hero-description">
+            Compliance doesn't have to be complicated. Zeeks simplifies audits, automates risk management, and delivers AI-driven insights—so you can stay compliant without the stress!
+        </p>
+        <a href="#waitlist" class="cta-button">Join Waitlist</a>
+    </section>
+
+    <section class="section section-white">
+        <div class="benefits-header">
+            <h2 style="font-size: 48px; font-weight: 900; line-height: 1.2; color: #333; text-align: center; max-width: 900px; margin: 0 auto 20px;">
+                Compliance: The ultimate upgrade for businesses to <u style="text-decoration-color: #fd4e00;">future-proof</u> their operations!
+            </h2>
+        </div>
+        
+        <div class="benefits-grid-new">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#fd4e00">
+                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.1 3.89 23 5 23H19C20.1 23 21 22.1 21 21V9M19 9H14V4H19V9Z"/>
+                    </svg>
+                </div>
+                <h3>AI-Driven Compliance,<br>Not Manual Burden</h3>
+                <p>Automate risk assessments and compliance tracking with intelligent AI that learns from your data—so you focus on strategic decisions, not paperwork.</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#fd4e00">
+                        <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                    </svg>
+                </div>
+                <h3>Human Insight<br>AI Can't Replicate</h3>
+                <p>Combine AI automation with expert human oversight to handle complex compliance scenarios that require nuanced judgment and industry expertise.</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#fd4e00">
+                        <path d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z"/>
+                    </svg>
+                </div>
+                <h3>Instant Positioning as<br>the Compliance Leader</h3>
+                <p>When you lead compliance initiatives that shape organizational strategy, you automatically control the follow-up work and become the go-to expert.</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#fd4e00">
+                        <path d="M13,14A2,2 0 0,0 15,12A2,2 0 0,0 13,10A2,2 0 0,0 11,12A2,2 0 0,0 13,14M13,4A8,8 0 0,1 21,12A8,8 0 0,1 13,20A8,8 0 0,1 5,12A8,8 0 0,1 13,4M13,2A10,10 0 0,0 3,12A10,10 0 0,0 13,22A10,10 0 0,0 23,12A10,10 0 0,0 13,2Z"/>
+                    </svg>
+                </div>
+                <h3>Fewer Audits,<br>Higher Confidence, More Control</h3>
+                <p>One comprehensive compliance framework can replace weeks of scattered audit preparations. Earn stakeholder trust faster than traditional compliance approaches.</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#fd4e00">
+                        <path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z"/>
+                    </svg>
+                </div>
+                <h3>Productized,<br>Repeatable, Scalable</h3>
+                <p>Run the same proven compliance framework again and again. Each audit feels fresh to stakeholders, yet you refine and streamline the process—compounding your expertise.</p>
+            </div>
+
+            <div class="benefit-item" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+                <h3 style="font-size: 36px; color: #333; margin-bottom: 0;">...and much more!</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-white">
+        <div class="section-title" style="color: #333;">FEATURES</div>
+        <div class="section-subtitle" style="color: #666;">Explore Zeeks Features</div>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; color: #666;">
+            Zeeks simplifies compliance with AI-driven insights, automation, and intuitive tools. Manage risks, track incidents, and streamline audits—all in one place.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Risk Register</h3>
+                <p>Centralized risk management to stay ahead.</p>
+            </div>
+            <div class="feature-card">
+                <h3>AI Assistance</h3>
+                <p>Converse with data and get instant insights.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Audit Report Archive</h3>
+                <p>Store and retrieve reports effortlessly</p>
+            </div>
+            <div class="feature-card">
+                <h3>Policies & KPI Tracking</h3>
+                <p>Monitor policies and key performance indicators (KPI).</p>
+            </div>
+            <div class="feature-card">
+                <h3>Security Exception Management</h3>
+                <p>Manage security deviations seamlessly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Digital Asset Management</h3>
+                <p>Keep track of compliance-related assets.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Training & Framework Q/A</h3>
+                <p>Enhance your compliance knowledge.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Security Incident Management</h3>
+                <p>Handle security issues proactively.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <h3 style="color: #333; font-size: 24px; margin-bottom: 10px;">Interested In using our Product</h3>
+            <a href="#waitlist" class="cta-button">Sign Up for waitlist</a>
+        </div>
+    </section>
+
+    <section id="users" class="section">
+        <div class="section-title">OUR USERS</div>
+        <div class="section-subtitle">Who We Help?</div>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Zeeks is designed for teams and businesses that need seamless, automated compliance management. Whether you're ensuring audit readiness or mitigating risks, Zeeks helps you stay ahead in your compliance journey.
+        </p>
+        
+        <div class="users-grid">
+            <div class="user-card">
+                <h3>Risk & Security Teams</h3>
+                <p>Automate risk assessments and monitor security incidents.</p>
+            </div>
+            <div class="user-card">
+                <h3>IT & Governance Teams</h3>
+                <p>Maintain regulatory alignment and enforce security policies.</p>
+            </div>
+            <div class="user-card">
+                <h3>Compliance Managers</h3>
+                <p>Simplify audits, manage policies, and track compliance performance</p>
+            </div>
+            <div class="user-card">
+                <h3>Businesses & Enterprises</h3>
+                <p>Scale compliance efforts with an intuitive, AI-powered platform.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="#waitlist" class="cta-button">Join Waitlist</a>
+        </div>
+    </section>
+
+    <section id="about" class="section section-white">
+        <div class="section-title" style="color: #333;">ABOUT US</div>
+        <div class="section-subtitle" style="color: #666;">Get to know Zeeks</div>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; color: #666;">
+            With 22+ years of experience in IT, auditing, and compliance, we know the challenges of regulatory management firsthand. That's why we built Zeeks, to make compliance management and governance simpler, smarter, and more efficient.
+        </p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-number">01</div>
+                <h3>Our Story & Mission</h3>
+                <p>At Zeeks Compliance Solutions, we're transforming compliance management with AI-driven automation and smart workflows. Our mission is to help businesses not just meet regulations but streamline audits, align infrastructure, and achieve compliance excellence with confidence.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-number">02</div>
+                <h3>Our Vision</h3>
+                <p>We envision a world where compliance is a driver of growth and trust, not a burden. By continuously evolving our platform, we equip businesses with the tools to proactively benchmark security maturity, mitigate risks, effectively use AI and achieve compliance effortlessly.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-number">03</div>
+                <h3>Note from Our Mentor</h3>
+                <p>After decades in IT and compliance, I've seen how complex and overwhelming regulations can be. Zeeks is built to make compliance simple, proactive, and a true competitive advantage for professionals</p>
+                <p class="quote">~ Puneet Sharma, Mentor</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Be The First To Use Zeeks</h2>
+        <p>Join the waitlist and be the first to experience effortless, AI-powered compliance management. Stay ahead, stay compliant!</p>
+        <a href="#waitlist" class="cta-button">Join Waitlist</a>
+    </section>
+
+    <footer id="contact" class="footer">
+        <h3>Contact Us</h3>
+        <p>Ready to transform your compliance management? Get in touch with us today.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(253, 78, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(253, 78, 0, 0.95)';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.benefit-card, .feature-card, .user-card, .about-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Waitlist form handler
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#waitlist') {
+                    e.preventDefault();
+                    alert('Thank you for your interest! Waitlist signup would be implemented here.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
