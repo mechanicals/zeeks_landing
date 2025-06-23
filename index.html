@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeeks - AI-Powered Compliance Solutions</title>
     <style>
-        /* Montserrat Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        /* Urbanist Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
         * {
             margin: 0;
@@ -14,9 +14,8 @@
             box-sizing: border-box;
         }
         
-
         body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #fd4e00 0%, #ff6b35 100%);
             color: white;
             overflow-x: hidden;
@@ -24,7 +23,7 @@
         }
 
         .header {
-            padding: 20px 40px;
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,36 +34,100 @@
             background: rgba(253, 78, 0, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
+            border-radius: 0 0 24px 24px;
+            margin: 0 20px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 32px;
             color: white;
-            background: linear-gradient(135deg, #fd4e00 0%, #ff6b35 100%);
-            padding: 2px 30px;
-            border-radius: 33px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 16px;
+            padding: 0 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: calc(100% - 20px);
+            display: flex;
+            align-items: center;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 32px;
+            align-items: center;
+            margin: 0;
+            height: 100%;
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+            height: 100%;
         }
 
         .nav-menu a {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s ease;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0 8px;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .nav-menu a:hover {
-            opacity: 0.8;
+            color: #fd4e00;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #fd4e00;
+            border-radius: 1px;
+        }
+
+        .cta-header-button {
+            background: white;
+            color: #333;
+            padding: 0 24px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Urbanist', sans-serif;
+            height: calc(100% - 20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-header-button:hover {
+            background: #f5f5f5;
+            color: #fd4e00;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .hero-section {
-            padding: 120px 40px 80px;
+            padding: 140px 40px 80px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
@@ -301,6 +364,45 @@
             margin-bottom: 10px;
         }
 
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(253, 78, 0, 0.98);
+            z-index: 999;
+            padding: 100px 40px 40px;
+        }
+
+        .mobile-nav-menu {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-nav-menu li {
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
         /* Popup Form Styles */
         .popup-overlay {
             display: none;
@@ -387,7 +489,7 @@
             border: 2px solid #e0e0e0;
             border-radius: 10px;
             font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Urbanist', sans-serif;
             transition: border-color 0.3s ease;
             background: #f8f8f8;
         }
@@ -422,6 +524,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 10px;
+            font-family: 'Urbanist', sans-serif;
         }
 
         .form-submit:hover {
@@ -492,30 +595,26 @@
             border-radius: 50%;
         }
 
-        .mobile-menu {
-            display: none;
-        }
-
         @media (max-width: 768px) {
             .header {
-                padding: 15px 20px;
+                padding: 16px 20px;
+                margin: 0 10px;
             }
 
-            .nav-menu {
+            .nav-container {
+                display: none;
+            }
+
+            .cta-header-button {
                 display: none;
             }
 
             .mobile-menu {
                 display: block;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
             }
 
             .hero-section {
-                padding: 100px 20px 60px;
+                padding: 120px 20px 60px;
             }
 
             .hero-title {
@@ -534,7 +633,6 @@
                 font-size: 32px;
             }
 
-            .benefits-grid,
             .benefits-grid-new,
             .features-grid,
             .users-grid,
@@ -547,15 +645,57 @@
                 gap: 40px 20px;
             }
 
+            /* Mobile Footer Fixes */
+            .final-cta {
+                margin: 0 20px;
+            }
+
+            .final-cta > div {
+                margin: 0 20px;
+                padding: 40px 20px;
+                transform: translateY(80px);
+            }
+
+            .footer {
+                padding: 150px 20px 40px;
+            }
+
             .footer > div {
+                max-width: 100%;
+            }
+
+            .footer > div > div:first-child {
+                display: grid;
                 grid-template-columns: 1fr;
                 gap: 30px;
+                text-align: center;
+            }
+
+            .footer > div > div:first-child > div:first-child {
+                text-align: center;
+            }
+
+            .footer > div > div:first-child > div:first-child > div:last-child {
+                justify-content: center;
             }
 
             .footer > div > div:last-child {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
+            }
+
+            /* Mobile users section grid fix */
+            .users-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                max-width: 100% !important;
+            }
+
+            /* Mobile two-column sections fix */
+            div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
             }
         }
 
@@ -584,17 +724,35 @@
 
     <header class="header">
         <div class="logo">zeeks</div>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#users">Who We Serve</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-            <button class="mobile-menu">☰</button>
-        </nav>
+        
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#features">Key Features</a></li>
+                    <li><a href="#users">Explore</a></li>
+                    <li><a href="#about">Solutions</a></li>
+                    <li><a href="#contact">Tools</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <a href="#waitlist" class="cta-header-button" style="height: 44px;">Sign Up</a>
+        
+        <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="#features" onclick="toggleMobileMenu()">Key Features</a></li>
+            <li><a href="#users" onclick="toggleMobileMenu()">Explore</a></li>
+            <li><a href="#about" onclick="toggleMobileMenu()">Solutions</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Tools</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+            <li><a href="#waitlist" onclick="toggleMobileMenu()" class="cta-header-button" style="margin-top: 20px; display: inline-block;">Sign Up</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero-section">
         <div class="hero-badge">Built by compliance experts with 22+ years of experience</div>
@@ -814,7 +972,45 @@
         </div>
     </footer>
 
+    <!-- Popup Form -->
+    <div class="popup-overlay" id="contactPopup">
+        <div class="popup-container">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2 class="popup-title">Contact Us!</h2>
+            <p class="popup-subtitle">Please Drop Your Details and Our Team Will Provide You Best Possibility</p>
+            
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Mobile No." required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">What is 1 + 4?</label>
+                    <input type="text" class="form-input" placeholder="Your answer" required>
+                </div>
+                <button type="submit" class="form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileNavOverlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+            } else {
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -828,17 +1024,6 @@
                 }
             });
         });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                const navMenu = document.querySelector('.nav-menu');
-                if (navMenu) {
-                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-                }
-            });
-        }
 
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
@@ -876,7 +1061,7 @@
         });
 
         // Waitlist and demo form handler
-        document.querySelectorAll('.cta-button').forEach(button => {
+        document.querySelectorAll('.cta-button, .cta-header-button').forEach(button => {
             button.addEventListener('click', function(e) {
                 if (this.getAttribute('href') === '#waitlist' || this.getAttribute('href') === '#demo') {
                     e.preventDefault();
@@ -931,32 +1116,16 @@
                 }
             });
         }
-    </script>
 
-    <!-- Popup Form -->
-    <div class="popup-overlay" id="contactPopup">
-        <div class="popup-container">
-            <button class="popup-close" onclick="closePopup()">&times;</button>
-            <h2 class="popup-title">Contact Us!</h2>
-            <p class="popup-subtitle">Please Drop Your Details and Our Team Will Provide You Best Possibility</p>
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.getElementById('mobileNavOverlay');
             
-            <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" class="form-input" placeholder="Mobile No." required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">What is 1 + 4?</label>
-                    <input type="text" class="form-input" placeholder="Your answer" required>
-                </div>
-                <button type="submit" class="form-submit">Submit</button>
-            </form>
-        </div>
-    </div>
+            if (overlay.style.display === 'block' && !mobileMenu.contains(e.target) && !overlay.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
