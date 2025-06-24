@@ -16,8 +16,8 @@
         
         body {
             font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #fd4e00 0%, #ff6b35 100%);
-            color: white;
+            background: #f8f9fa;
+            color: #333;
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -31,16 +31,17 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(253, 78, 0, 0.95);
+            background: #fe4a22 !important;
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-radius: 0 0 24px 24px;
-            margin: 0 20px;
+            border-radius: 24px 24px;
+            margin: 10px 20px 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         .logo {
             font-size: 32px;
-            color: white;
+            color: #ffffff;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -49,10 +50,10 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            background: white;
+            background: #f8f9fa;
             border-radius: 16px;
             padding: 0 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             height: calc(100% - 20px);
             display: flex;
             align-items: center;
@@ -102,8 +103,8 @@
         }
 
         .cta-header-button {
-            background: white;
-            color: #333;
+            background: #ffffff;;
+            color: #000000;
             padding: 0 24px;
             border: none;
             border-radius: 16px;
@@ -116,14 +117,13 @@
             align-items: center;
             font-family: 'Urbanist', sans-serif;
             height: calc(100% - 20px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(253, 78, 0, 0.2);
         }
 
         .cta-header-button:hover {
-            background: #f5f5f5;
-            color: #fd4e00;
+            background: #e54500;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(253, 78, 0, 0.3);
         }
 
         .hero-section {
@@ -369,7 +369,7 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: #fd4e00;
             font-size: 24px;
             cursor: pointer;
             padding: 8px;
@@ -697,6 +697,15 @@
                 grid-template-columns: 1fr !important;
                 gap: 30px !important;
             }
+
+            /* Mobile hero section fix */
+            .hero-section > div > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-section > div > div > div:last-child {
+                display: none;
+            }
         }
 
         @keyframes float {
@@ -754,13 +763,142 @@
         </ul>
     </div>
 
-    <section id="home" class="hero-section">
-        <div class="hero-badge">Built by compliance experts with 22+ years of experience</div>
-        <h1 class="hero-title">We make Compliance Easy</h1>
-        <p class="hero-description">
-            Compliance doesn't have to be complicated.<br />Zeeks simplifies audits, automates risk management, <br />so you can stay compliant without the stress!
-        </p>
-        <a href="#waitlist" class="cta-button">Join Waitlist</a>
+    <section id="home" class="hero-section" style="background: #f8f9fa; padding: 140px 40px 80px; overflow: hidden; position: relative;">
+        <div style="max-width: 1400px; margin: 0 auto; position: relative;">
+            <!-- Decorative Elements -->
+            <div class="analytics-decoration" style="position: absolute; top: -50px; left: 10%; opacity: 0.1;">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="80" fill="#fd4e00"/>
+                </svg>
+            </div>
+            <div class="analytics-decoration" style="position: absolute; bottom: -30px; right: 15%; opacity: 0.1;">
+                <svg width="150" height="150" viewBox="0 0 150 150">
+                    <rect x="25" y="25" width="100" height="100" rx="20" fill="#ffc107" transform="rotate(45 75 75)"/>
+                </svg>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <!-- Left Content -->
+                <div style="position: relative; z-index: 2;">
+                    <div style="background: rgba(253, 78, 0, 0.1); color: #fd4e00; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 30px; display: inline-block;">
+                        Built by compliance experts with 22+ years of experience
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
+                        <div style="background: #e8e8e8; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="#666">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                        </div>
+                        <div style="background: #fd4e00; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h1 style="font-size: 72px; font-weight: 900; line-height: 1.1; color: #333; margin-bottom: 30px;">
+                        We make<br>
+                        <span style="color: #999;">Compliance</span> 
+                        <span style="background: #ffd026; width: 60px; height: 60px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; margin: -5px 10px 0;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="#333">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </span><br>
+                        Easy
+                    </h1>
+                    
+                    <p style="font-size: 20px; color: #666; line-height: 1.6; margin-bottom: 40px;">
+                        Zeeks simplifies audits, automates risk management, so you can stay compliant without the stress!
+                    </p>
+                    
+                    <a href="#waitlist" class="cta-button" style="background: #fd4e00; color: white; box-shadow: 0 10px 30px rgba(253, 78, 0, 0.3);">Join Waitlist</a>
+                </div>
+                
+                <!-- Right Content - Dashboard Preview -->
+                <div style="position: relative;">
+                    <!-- Play Button -->
+                    <div style="position: absolute; top: -40px; right: 20px; z-index: 10;">
+                        <div style="background: #fd4e00; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(253, 78, 0, 0.3); cursor: pointer; transition: transform 0.3s ease;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Mockup -->
+                    <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); transform: perspective(1000px) rotateY(-5deg);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 style="font-size: 18px; color: #333; margin: 0;">Compliance Dashboard</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <span style="background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-size: 12px; color: #666;">Daily</span>
+                                <span style="background: #fd4e00; color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px;">Weekly</span>
+                                <span style="background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-size: 12px; color: #666;">Monthly</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats Row -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+                            <div>
+                                <p style="font-size: 14px; color: #999; margin: 0;">SOC 2 Ready</p>
+                                <p style="font-size: 28px; font-weight: 700; color: #333; margin: 5px 0;">98%</p>
+                                <p style="font-size: 12px; color: #4CAF50; margin: 0;">↑ 15%</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 14px; color: #999; margin: 0;">Active Risks</p>
+                                <p style="font-size: 28px; font-weight: 700; color: #fd4e00; margin: 5px 0;">12</p>
+                                <p style="font-size: 12px; color: #fd4e00; margin: 0;">↓ 3</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 14px; color: #999; margin: 0;">Frameworks</p>
+                                <p style="font-size: 28px; font-weight: 700; color: #ffc107; margin: 5px 0;">35+</p>
+                                <p style="font-size: 12px; color: #4CAF50; margin: 0;">Available</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Chart Mockup -->
+                        <div style="background: #f8f9fa; border-radius: 10px; padding: 20px; height: 200px; position: relative; overflow: hidden;">
+                            <div style="display: flex; align-items: flex-end; height: 100%; gap: 10px;">
+                                <div style="flex: 1; background: #e0e0e0; height: 40%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #b19cd9; height: 60%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #4CAF50; height: 85%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #fd4e00; height: 30%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #4CAF50; height: 90%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #ffc107; height: 75%; border-radius: 4px 4px 0 0;"></div>
+                                <div style="flex: 1; background: #4CAF50; height: 95%; border-radius: 4px 4px 0 0;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Legend -->
+                        <div style="display: flex; justify-content: center; gap: 30px; margin-top: 20px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 12px; height: 12px; background: #4CAF50; border-radius: 2px;"></div>
+                                <span style="font-size: 12px; color: #666;">Compliant</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 12px; height: 12px; background: #fd4e00; border-radius: 2px;"></div>
+                                <span style="font-size: 12px; color: #666;">At Risk</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 12px; height: 12px; background: #ffc107; border-radius: 2px;"></div>
+                                <span style="font-size: 12px; color: #666;">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Cards -->
+                    <div style="position: absolute; top: 50px; right: -30px; background: white; padding: 15px 20px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transform: rotate(5deg);">
+                        <p style="font-size: 12px; color: #999; margin: 0;">Time to Audit</p>
+                        <p style="font-size: 20px; font-weight: 700; color: #4CAF50; margin: 5px 0;">-60%</p>
+                    </div>
+                    
+                    <div style="position: absolute; bottom: 30px; left: -40px; background: #ffd026; padding: 15px 20px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transform: rotate(-3deg);">
+                        <p style="font-size: 12px; color: #333; margin: 0;">Integrations</p>
+                        <p style="font-size: 20px; font-weight: 700; color: #333; margin: 5px 0;">375+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="section section-white">
@@ -845,7 +983,7 @@
         </div>
     </section>
 
-    <section id="users" class="section">
+    <section id="users" class="section" style="background: linear-gradient(135deg, #fd4e00 0%, #ff6b35 100%); color: white;">
         <div class="section-title">Simplify security and compliance at every stage</div>
         <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
             Whether you're working toward your first SOC 2 audit or running a security and compliance program at enterprise scale, we're here to do the heavy lifting.
@@ -1030,9 +1168,9 @@
             const header = document.querySelector('.header');
             if (header) {
                 if (window.scrollY > 100) {
-                    header.style.background = 'rgba(253, 78, 0, 0.98)';
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
                 } else {
-                    header.style.background = 'rgba(253, 78, 0, 0.95)';
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
                 }
             }
         });
